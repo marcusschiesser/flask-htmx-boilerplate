@@ -1,0 +1,6 @@
+{% for todo in todos %}
+  <tr class="bg-white hover:bg-green-50 mb-0">
+    <td class="p-3 text-gray-800 text-center border border-green-400">{{todo.id}}</td>
+    <td class="p-3 text-gray-800 text-center border border-green-400">{{todo.name}}</td>
+  </tr>
+{% endfor %}

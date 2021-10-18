@@ -1,0 +1,32 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Todos{% endblock %}
+{% block content %}
+<div class="w-2/3 mx-auto py-10 text-gray-600">
+  <h1 class="text-3xl uppercase">Todos</h1>
+</div>
+
+<table class="border-collapse w-2/3 mx-auto">
+  <thead>
+    <tr>
+      <th class="p-3 font-bold uppercase bg-green-200 text-gray-600 border border-green-400">#</th>
+      <th class="p-3 font-bold uppercase bg-green-200 text-gray-600 border border-green-400">Todo</th>
+    </tr>
+  </thead>
+  <tbody id="todo-results" hx-get="/todos" hx-trigger="load">
+  </tbody>
+</table>
+
+<div class="w-2/3 mx-auto py-10 text-gray-600">
+  <input
+    type="text"
+    name="todo"
+    placeholder="e.g. Wash dishes"
+    class="bg-white h-10 px-5 text-2xl focus:outline-none"
+    hx-post="/todos/add"
+    hx-target="#todo-results"
+  >
+  <button class="bg-green-100 text-green-500 hover:bg-green-200 h-10 px-5 text-2xl"
+  hx-post="/todos/add" hx-include="[name='todo']"
+  hx-target="#todo-results">Add</button>
+</div>
+{% endblock %}
